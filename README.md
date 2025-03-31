@@ -122,7 +122,3 @@ npm run test
   ```bash
   npx expo start --clear
   ```
-
-## License
-
-[MIT](LICENSE)
