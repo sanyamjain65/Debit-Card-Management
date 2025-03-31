@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from 'react'
-import { View, Text, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, Platform } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { router } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
@@ -58,7 +58,7 @@ const SpendingLimit = () => {
     const isValidAmount = amount && amount.length > 0
 
     return (
-        <SafeAreaView className="bg-background flex-1">
+        <SafeAreaView className="bg-background flex-1" edges={['top']}>
             <View className="bg-background flex-1">
                 {/* Header */}
                 <View className="flex-row justify-between mt-6 mx-5">
@@ -87,20 +87,22 @@ const SpendingLimit = () => {
                         </View>
 
                         {/* Amount Input */}
-                        <View className="flex flex-row items-center gap-2">
+                        <View className={`flex flex-row items-center gap-2 ${Platform.OS === 'ios' ? 'mt-3' : 'mt-0'}`}>
                             <TextInput
-                                className="border-b-2 border-gray-100 text-2xl font-extrabold w-full"
+                                className="text-2xl font-extrabold w-full"
                                 placeholder=""
                                 onChangeText={handleAmountChange}
                                 value={amount}
                                 keyboardType="numeric"
+                                returnKeyType="done"
                                 style={{ paddingLeft: 50 }}
                             />
-                            <View className="absolute left-0 bg-primary px-3 py-1 rounded-lg">
+                            <View className={`absolute left-0 bg-primary px-3 py-1 ${Platform.OS === 'ios' ? 'top-1.5' : ''} rounded-lg`}>
                                 <Text className="text-white text-sm font-bold">S$</Text>
                             </View>
                         </View>
 
+                        <View className={`w-full h-0.5 bg-gray-100 ${Platform.OS === 'ios' ? 'mt-3' : ''}`}></View>
                         {/* Error Message */}
                         {isAmountExceeded && (
                             <View className="mt-4">
@@ -134,7 +136,7 @@ const SpendingLimit = () => {
                     </View>
 
                     {/* Save Button */}
-                    <View className="flex-row mx-7 mb-5">
+                    <View className="flex-row mx-7 mb-8">
                         <TouchableOpacity
                             className={`flex-1 p-4 rounded-full overflow-hidden items-center justify-center ${
                                 isValidAmount ? 'bg-primary' : 'bg-[#EEEEEE]'

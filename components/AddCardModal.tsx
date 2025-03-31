@@ -3,6 +3,7 @@ import { Modal, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { addCardAsync } from '../store/slices/cardSlice'
 import { generateCardNumber, generateCVV, generateExpiryDate } from '../utils/cardUtils'
+import { theme } from '@/tailwind.config'
 
 interface AddCardModalProps {
     isModalVisible: boolean
@@ -78,8 +79,9 @@ const AddCardModal = ({
 
                             <TextInput
                                 className={`border-2 ${isCardNameValid ? 'border-gray-300' : 'border-red-500'
-                                    } rounded-2xl px-4 py-3 mb-4 text-lg`}
+                                    } rounded-2xl px-4 py-4 text-md font-bold`}
                                 placeholder="Enter Your Card Name"
+                                placeholderTextColor={(theme?.extend?.colors as {placeholderTextColor: string}).placeholderTextColor}
                                 onChangeText={handleCardNameChange}
                                 value={cardName}
                                 keyboardType="default"
@@ -94,7 +96,7 @@ const AddCardModal = ({
                             )}
                         </View>
 
-                        <View className="flex-row mx-7">
+                        <View className="flex-row mx-7 mb-4">
                             <TouchableOpacity
                                 className={`flex-1 p-4 rounded-full overflow-hidden items-center justify-center ${!cardName ? 'bg-[#EEEEEE]' : 'bg-primary'
                                     }`}

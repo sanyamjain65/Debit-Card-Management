@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState, useMemo } from "react";
-import { View, TouchableOpacity, ScrollView, Dimensions, ActivityIndicator, SafeAreaView, Alert } from "react-native";
+import { View, TouchableOpacity, ScrollView, Dimensions, ActivityIndicator, SafeAreaView, Alert, Platform, PixelRatio } from "react-native";
 import { Plus } from "react-native-feather";
 import AddCardModal from "@/components/AddCardModal";
 import DebitCard from "@/components/DebitCard";
@@ -13,7 +13,7 @@ import { theme } from "@/tailwind.config";
 import { Card } from "@/interfaces/interface";
 import CardActionsList from "@/components/CardActionsList";
 
-const { width: WINDOW_WIDTH } = Dimensions.get('window');
+const { width: WINDOW_WIDTH, height: WINDOW_HEIGHT } = Dimensions.get('window');
 const LOADING_TIMEOUT = 1000;
 
 const cards = () => {
@@ -34,6 +34,8 @@ const cards = () => {
             return () => clearTimeout(timer);
         }
     }, [activeCardIndex, dispatch]);
+
+    console.log(Platform.OS, PixelRatio.get(), WINDOW_HEIGHT)
 
     const handleWeeklyLimitPress = useCallback(() => {
         if (!activeCard.weeklyLimitSet) {
@@ -71,7 +73,7 @@ const cards = () => {
 
     return (
        
-        <SafeAreaView className="flex-1">
+        <SafeAreaView className="flex-1 bg-background">
             <View className="bg-background flex-1">
                 <Header balance={activeCard.balance} />
                 <AddCardModal 

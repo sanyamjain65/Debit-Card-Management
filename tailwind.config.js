@@ -17,7 +17,8 @@ module.exports = {
         inactive: "#0000001F",
         inputBottom: "#E5E5E5",
         inactiveButton: "#EEEEEE",
-        switchInactiveTrackColor: "#D1D5DB"
+        switchInactiveTrackColor: "#D1D5DB",
+        placeholderTextColor: "#9CA3AF"
       }
     },
   },
