@@ -102,6 +102,11 @@ npm run test
 - `/components` - Reusable UI components
 - `/store` - Redux store configuration and slices
 - `/interfaces` - TypeScript interfaces
+- `/services` - Mock API server implementation
+- `/assets` - Images and icons
+- `/constants` - Constants for the app
+- `/__tests__` - Unit tests for components
+
 
 ## Technologies Used
 
