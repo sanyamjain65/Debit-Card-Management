@@ -12,11 +12,17 @@ A mobile application built with React Native and Expo that allows users to manag
 
 ## Advanced Features
 
-1. **Cross-Platform Functionality**: Fully compatible with both iOS and Android platforms
-2. **Performance Optimization**: Implemented React hooks (useCallback, useMemo) to optimize rendering and prevent unnecessary re-renders
-3. **Redux Thunk Implementation**: Integrated Redux Thunk middleware for handling asynchronous operations and API requests
-4. **Unit Testing**: Comprehensive test coverage for major components ensuring reliability and stability
-5. **Form Validation**: Robust validation for card entry forms and spending limit inputs to ensure data integrity
+1. **Cross-Platform Compatibility:** The app is fully functional on both iOS and Android platforms.
+2. **Pixel-Perfect UI:** The design implementation closely follows the provided design sheets.
+3. **Performance Optimisation:**: Leveraged React hooks (useCallback, useMemo) to optimise rendering and minimise unnecessary re-renders.
+
+4. **Mock API Server:** Implemented a mock API using JSON data stored in local storage to simulate real-world API interactions. Team can review the api.ts file in the services folder for details.
+
+5. **Redux Thunk Integration:** Utilised Redux Thunk for efficient state management and handling asynchronous operations.
+
+6. **Unit Testing:** Added comprehensive test coverage for key components to ensure reliability and stability.
+
+7. **Form Validation:** Implemented robust validation for card entry forms and spending limits to maintain data integrity.
 
 
 ## Prerequisites
